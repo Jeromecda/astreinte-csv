@@ -69,24 +69,24 @@ class Astreinte
         return $this;
     }
 
-    public function isSurPlace(): ?bool
+    public function isSurPlace(): ?string
     {
         return $this->sur_place;
     }
 
-    public function setSurPlace(bool $sur_place): self
+    public function setSurPlace(string $sur_place): self
     {
         $this->sur_place = $sur_place;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): ?text
     {
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription(?text $description): self
     {
         $this->description = $description;
 
