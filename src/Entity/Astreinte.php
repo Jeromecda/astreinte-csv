@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AstreinteRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AstreinteRepository::class)]
@@ -19,13 +20,13 @@ class Astreinte
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $nom = null;
 
-    #[ORM\Column]
-    private ?bool $sur_place = null;
+    #[ORM\Column(length: 255)]
+    private ?string $sur_place = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
     public function getId(): ?int
@@ -62,14 +63,14 @@ class Astreinte
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(?string $nom): self
     {
         $this->nom = $nom;
 
         return $this;
     }
 
-    public function isSurPlace(): ?string
+    public function getSurPlace(): ?string
     {
         return $this->sur_place;
     }
@@ -81,12 +82,12 @@ class Astreinte
         return $this;
     }
 
-    public function getDescription(): ?text
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(?text $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 

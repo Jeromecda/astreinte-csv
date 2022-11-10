@@ -23,6 +23,15 @@ class HomeController extends AbstractController
     {
         $requete = $request->attributes->all();
         dd($requete);
+
+        $builder->add('field', ChoiceType::class, array(
+            'label' => false,
+            'choices' => self::columnsort(),
+            'attr' => array(
+                'placeholder' => 'Field',
+            ),
+        ));
+
         return $this->render('home/check_form.html.twig', [
             'requete' => $requete,
         ]);
